@@ -1,17 +1,12 @@
-import {
-  SpeedDial,
-  SpeedDialAction,
-  SpeedDialIcon,
-} from "@mui/material";
+import { SpeedDial, SpeedDialAction, SpeedDialIcon } from "@mui/material";
 import React from "react";
 import SaveIcon from "@mui/icons-material/Save";
 import PrintIcon from "@mui/icons-material/Print";
 import ShareIcon from "@mui/icons-material/Share";
 import AddIcon from "@mui/icons-material/Add";
 
-
 const actions = [
-  { icon: <AddIcon />, name: "Create new recipe"},
+  { icon: <AddIcon />, name: "Create new recipe" },
   { icon: <SaveIcon />, name: "Save" },
   { icon: <PrintIcon />, name: "Print" },
   { icon: <ShareIcon />, name: "Share" },
@@ -39,7 +34,6 @@ export default function MySpeedDial() {
           />
         ))}
       </SpeedDial>
-      
     </>
   );
 }
