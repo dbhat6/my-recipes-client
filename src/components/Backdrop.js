@@ -1,18 +1,15 @@
 import { Backdrop } from "@mui/material";
 import React from "react";
+import FullRecipe from "./FullRecipe";
 
 export default function MyBackdrop(props) {
-  const [backdropState, setBackdropState] = React.useState(false);
-
-  const toggleBackdrop = () => setBackdropState(!backdropState);
-
   return (
     <Backdrop
       sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-      open={backdropState}
-      onClick={toggleBackdrop}
+      open={true}
+      onClick={props.toggle}
     >
-      {props.child}
+      <FullRecipe {...props} />
     </Backdrop>
   );
 }

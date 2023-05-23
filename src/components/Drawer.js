@@ -54,10 +54,9 @@ export default function MyDrawer() {
   return (
     <>
       <NavBar toggle={toggleDrawer} />
-      <Drawer anchor={"left"} open={state} onClose={toggleDrawer}>
+      <Drawer open={state} onClose={toggleDrawer}>
         {list()}
       </Drawer>
-      {/* <MySpeedDial/> */}
     </>
   );
 }

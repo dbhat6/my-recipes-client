@@ -1,25 +1,27 @@
-import logo from "./logo.svg";
+import { useLoaderData } from "react-router-dom";
 import "./styles/App.css";
+import { ImageList } from "@mui/material";
+import React from "react";
+import MyImageItem from "./components/ImageItem";
 
-function App() {
+export default function App() {
+  const recipes = useLoaderData();
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        <ImageList gap={10} cols={3}>
+          {recipes.map((recipe, index) => (
+            <MyImageItem recipe={recipe} key={index} />
+          ))}
+        </ImageList>
       </header>
     </div>
   );
 }
 
-export default App;
+export const AppLoader = async () => {
+  const recipes = await fetch("http://localhost:4000/recipes");
+  return recipes.json();
+};
