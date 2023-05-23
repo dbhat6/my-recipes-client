@@ -1,12 +1,13 @@
 import { IconButton, ImageListItem, ImageListItemBar } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import { useState } from "react";
-import MyBackdrop from "./Backdrop";
+import RecipeModal from "./RecipeModal";
 
 export default function MyImageItem({ recipe }) {
   const [cardClickState, setCardClickState] = useState(false);
 
   const toggleCardClickState = () => setCardClickState(!cardClickState);
+
   return (
     <ImageListItem>
       <img
@@ -28,7 +29,7 @@ export default function MyImageItem({ recipe }) {
         }
       />
       {cardClickState && (
-        <MyBackdrop toggle={toggleCardClickState} {...recipe} />
+        <RecipeModal toggle={toggleCardClickState} {...recipe} />
       )}
     </ImageListItem>
   );

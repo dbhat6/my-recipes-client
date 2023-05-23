@@ -11,7 +11,7 @@ export default function App() {
     <div className="App">
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <ImageList gap={10} cols={3}>
+        <ImageList gap={10} cols={3} sx={{ width: 1000, height: "max-content" }}>
           {recipes.map((recipe, index) => (
             <MyImageItem recipe={recipe} key={index} />
           ))}

@@ -25,28 +25,27 @@ export default function MyList(props) {
   };
 
   return (
-    <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-      {props.list.map((value, index) => {
+    <List sx={{ width: "100%", bgcolor: "background.paper" }} dense>
+      {props.list.map((val, index) => {
         const labelId = `checkbox-list-label-${index}`;
         return (
           <ListItem key={index} disablePadding>
-            <ListItemButton
-              role={undefined}
-              onClick={handleToggle(value.text)}
-              dense
-            >
-              <ListItemIcon>
-                <Checkbox
-                  edge="start"
-                  checked={checked.indexOf(value.text) !== -1}
-                  tabIndex={-1}
-                  disableRipple
-                  inputProps={{ "aria-labelledby": labelId }}
-                />
-              </ListItemIcon>
+            <ListItemButton onClick={handleToggle(val.value)} >
+              {props.checkbox && (
+                <ListItemIcon>
+                  <Checkbox
+                    edge="start"
+                    checked={checked.indexOf(val.value) !== -1}
+                    tabIndex={-1}
+                    disableRipple
+                    inputProps={{ "aria-labelledby": labelId }}
+                  />
+                </ListItemIcon>
+              )}
               <ListItemText
                 id={labelId}
-                primary={`Line item ${value.text + 1}`}
+                primary={val.value}
+                secondary={props.secondary ? val.quantity : null}
               />
             </ListItemButton>
           </ListItem>

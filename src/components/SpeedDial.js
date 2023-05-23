@@ -1,22 +1,22 @@
 import { SpeedDial, SpeedDialAction, SpeedDialIcon } from "@mui/material";
 import React from "react";
-import SaveIcon from "@mui/icons-material/Save";
-import PrintIcon from "@mui/icons-material/Print";
-import ShareIcon from "@mui/icons-material/Share";
 import AddIcon from "@mui/icons-material/Add";
-
-const actions = [
-  { icon: <AddIcon />, name: "Create new recipe" },
-  { icon: <SaveIcon />, name: "Save" },
-  { icon: <PrintIcon />, name: "Print" },
-  { icon: <ShareIcon />, name: "Share" },
-];
+import { useNavigate } from "react-router-dom";
 
 export default function MySpeedDial() {
+  const navigate = useNavigate();
   const [speedDialState, setSpeedDialState] = React.useState(false);
 
   const toggleSpeedDial = () => setSpeedDialState(!speedDialState);
-
+  const actions = [
+    {
+      icon: <AddIcon />,
+      name: "Create new recipe",
+      onClick: () => {
+        navigate("/");
+      },
+    },
+  ];
   return (
     <>
       <SpeedDial
@@ -31,6 +31,7 @@ export default function MySpeedDial() {
             key={action.name}
             icon={action.icon}
             tooltipTitle={action.name}
+            onClick={action.onClick}
           />
         ))}
       </SpeedDial>
