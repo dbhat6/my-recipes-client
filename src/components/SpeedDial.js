@@ -13,7 +13,7 @@ export default function MySpeedDial() {
       icon: <AddIcon />,
       name: "Create new recipe",
       onClick: () => {
-        navigate("/");
+        navigate("/new");
       },
     },
   ];
